@@ -14,3 +14,20 @@ delegation_1992 <- olympics %>%
   select(country, athletes) %>%
   arrange(desc(athletes))
 delegation_1992
+
+# 7b
+olympics <- olympics %>%
+  mutate(country = trimws(country))
+plot_countries <- olympics %>%
+  filter(country %in% c("United States", "France", "Germany", "Russia", "China"))
+ggplot(plot_countries, aes(x = year, y = gold, color = country)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    title = "Gold Medals Over Time",
+    x = "Years",
+    y = "Gold Medal",
+    color = "Country"
+  ) +
+  theme_minimal()
+
