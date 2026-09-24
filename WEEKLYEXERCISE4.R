@@ -16,3 +16,8 @@ country_gold_total <- olympics %>%
   group_by(country) %>%
   summarize(total.gold = sum(gold, na.rm = TRUE))
 country_gold_total
+#6c
+medals_by_year <- olympics %>%
+  group_by(year) %>%
+  summarize(total.medals.given = sum(total.medals, na.rm = TRUE))
+medals_by_year
