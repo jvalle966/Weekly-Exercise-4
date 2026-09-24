@@ -11,4 +11,8 @@ olympics <- read.csv("Olympics.csv")
 #6a
 olympics <- olympics %>%
   mutate(total.medals = gold + silver + bronze)
-
+#6b
+country_gold_total <- olympics %>%
+  group_by(country) %>%
+  summarize(total.gold = sum(gold, na.rm = TRUE))
+country_gold_total
